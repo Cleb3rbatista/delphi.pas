@@ -1,0 +1,134 @@
+# delphi.pas
+unit calculadora;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+
+type
+  TForm2 = class(TForm)
+    multiplicação: TButton;
+    subtração: TButton;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    primeiro_valor: TLabel;
+    Edit4: TEdit;
+    Edit5: TEdit;
+    Edit6: TEdit;
+    Edit7: TEdit;
+    Edit8: TEdit;
+    Edit9: TEdit;
+    Edit10: TEdit;
+    Edit11: TEdit;
+    Edit12: TEdit;
+    Edit13: TEdit;
+    Edit14: TEdit;
+    Edit15: TEdit;
+    Edit16: TEdit;
+    Edit17: TEdit;
+    Edit18: TEdit;
+    Edit19: TEdit;
+    Edit20: TEdit;
+    resultado: TLabel;
+    Label6: TLabel;
+    divisão: TButton;
+    soma: TButton;
+    edit1: TEdit;
+    edit2: TEdit;
+    edit3: TEdit;
+    procedure somaClick(Sender: TObject);
+    procedure subtraçãoClick(Sender: TObject);
+    procedure multiplicaçãoClick(Sender: TObject);
+    procedure divisãoClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form2: TForm2;
+
+implementation
+
+{$R *.dfm}
+procedure TForm2.divisãoClick(Sender: TObject);
+var
+  vedit4, vedit8 , vedit12, vedit16, vedit20:double;
+begin
+    if edit4.text='' then
+      begin
+        showmessage('valor invalido');
+        edit2.SetFocus;
+        exit;
+      end;
+    if edit8.text='0' then
+      begin
+        showmessage(' não e posssivel dividir um numero por zero');
+        edit8.SetFocus;
+        exit;
+      end;
+      if edit12.text='0' then
+      begin
+        showmessage(' não e posssivel dividir um numero por zero');
+        edit12.SetFocus;
+        exit;
+      end;
+      if edit16.text='0' then
+      begin
+        showmessage(' não e posssivel dividir um numero por zero');
+        edit16.SetFocus;
+        exit;
+      end;
+    vedit4:= StrToCurr(edit4.text);
+    vedit8:= StrToCurr(edit8.text);
+    vedit12:= StrToCurr(edit12.text);
+    vedit16:= StrToCurr(edit16.text);
+
+    vedit20:= vedit4 / vedit8 / vedit12 / vedit16;
+    edit20.text:= CurrToStr(vedit20);
+end;
+
+procedure TForm2.multiplicaçãoClick(Sender: TObject);
+var
+  vedit3, vedit7 , vedit11, vedit15, vedit19:integer;
+begin
+    vedit3:= StrToInt(edit3.text);
+    vedit7:= StrToInt(edit7.text);
+    vedit11:= StrToInt (edit11.text);
+    vedit15:= StrToInt (edit15.text);
+
+    vedit19:= vedit3 * vedit7 * vedit11 * vedit15;
+    edit19.text:= IntToStr(vedit19);
+end;
+
+procedure TForm2.somaClick(Sender: TObject);
+  var
+  vedit1, vedit5 , vedit9, vedit13, vedit17:integer;
+begin
+    vedit1:= StrToInt(edit1.text);
+    vedit5:= StrToInt(edit5.text);
+    vedit9:= StrToInt (edit9.text);
+    vedit13:= StrToInt (edit13.text);
+
+    vedit17:= vedit1 + vedit5 + vedit9 + vedit13;
+    edit17.text:= IntToStr(vedit17);
+end;
+
+procedure TForm2.subtraçãoClick(Sender: TObject);
+    var
+  vedit2, vedit6 , vedit10, vedit14, vedit18:integer;
+begin
+    vedit2:= StrToInt(edit2.text);
+    vedit6:= StrToInt(edit6.text);
+    vedit10:= StrToInt (edit10.text);
+    vedit14:= StrToInt (edit14.text);
+
+    vedit18:= vedit2 - vedit6 - vedit10 - vedit14;
+    edit18.text:= IntToStr(vedit18);
+end;
+
+end.
